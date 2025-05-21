@@ -1,0 +1,16 @@
+./unico-frontend/node_modules
+
+# Node modules
+unico-front-end/node_modules/
+unico-back-end/node_modules/
+
+# Builds
+unico-front-end/build/
+unico-front-end/dist/
+
+# Logs
+**/*.log
+
+# Env
+unico-front-end/.env
+unico-back-end/.env
