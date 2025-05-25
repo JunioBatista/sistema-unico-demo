@@ -1,11 +1,20 @@
 import { initDatabase } from '../config/dataBase.js';
-import { CreateFilaDTO } from '../dtos/FilaRequest.model.js';
-import { createFila, getAllFilas } from '../services/filas.service.js';
+import { fetchFilas } from '../services/atenderBem.service.js';
+import { createFila } from '../services/filas.service.js';
+  
+
 
 export const getFilas = async (req, res) => {
-  const db = await initDatabase();
-  const users = await getAllFilas(db);
-  res.json(users);
+
+  const { url, key } = req.query;
+
+  try {
+    let response = await fetchFilas(url,key)
+    res.status(200).json(response);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+
 };
 
 export const addFila = async (req, res) => {
