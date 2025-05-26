@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-export default function Form() {
+
+export default function Form({onSubmit, isLoading}) {
 
     const [formData, setFormData] = useState({ url: "", key: "" });
     const [error, setError] = useState("");
@@ -11,7 +12,8 @@ export default function Form() {
       const { name, value } = event.target;
       setFormData((prev) => ({ ...prev, [name]: value }));
     };
-  
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,46 +24,49 @@ export default function Form() {
         }
 
         setError("");
-        alert(`URL: ${formData.url}, Key: ${formData.key}`);
+        onSubmit(formData)
+
     };
     
 
 
     return (
-        <form onSubmit={handleSubmit} className= "bg-primary-400 border-1 border-white-100 w-2xl flex flex-col items-center gap-4 p-6 rounded shadow">
+        <form onSubmit={handleSubmit} className= " mt-5 bg-primary-800 text-white border-1 border-white-100 w-3xl flex flex-col items-center gap-4 p-6 rounded shadow">
 
-        <div className="flex flex-col ">
-            <label htmlFor="url" className="mb-1">URL da API:</label>
+        <div className="flex flex-col w-full ">
+            <label htmlFor="url" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >URL da API:</label>
             <input
                 type="text"
                 id="url"
                 name="url"
                 value={formData.url}
                 onChange={handleChange}
-                className="border border-primary-800 p-2 rounded"
+                className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
         </div>
 
-        <div className="flex flex-col">
-            <label htmlFor="key" className="mb-1">API Key:</label>
+        <div className="flex flex-col w-full">
+            <label htmlFor="key" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">API Key:</label>
             <input
                 type="text"
+                className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 id="key"
                 name="key"
                 value={formData.key}
                 onChange={handleChange}
-                className="border  border-primary-800 p-2 rounded"
             />
         </div>
         {error && <p className="text-red-500 font-medium text-sm">{error}</p>}
 
         <button
             type="submit"
-            className="flex items-center justify-center gap-2 bg-primary-800 text-white py-2 px-4 rounded hover:bg-primary-600">
-            Buscar 
-            <FontAwesomeIcon icon={faArrowRight} />
+            className=" w-48  flex items-center justify-center justify-center gap-2 bg-text-900 text-white py-2 px-4 rounded hover:bg-primary-600">
+                {isLoading ? "" : "Consultar Filas"}
+             
+            <FontAwesomeIcon icon={isLoading ? faSpinner : faArrowRight } />
         </button>
 
         </form>
     )
 }
+

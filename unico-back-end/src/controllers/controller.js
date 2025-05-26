@@ -10,7 +10,27 @@ export const getFilas = async (req, res) => {
 
   try {
     let response = await fetchFilas(url,key)
-    res.status(200).json(response);
+
+    if(!response){return []}
+
+    let connected = []
+    let disconnected = []
+
+    for(let i = 0; i < response.length; i++){
+      if(response[i].connected){
+        connected.push(response[i])
+      }else {
+        disconnected.push(response[i])
+      }
+    }
+
+    const data = {
+      connected,
+      disconnected,
+      total: response.length
+    }
+
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -20,7 +40,6 @@ export const getFilas = async (req, res) => {
 export const addFila = async (req, res) => {
   try {
     const db = await initDatabase();
-    const dto = new CreateFilaDTO(req.body);
     const user = await createFila(db, dto);
     res.status(201).json(user);
   } catch (err) {

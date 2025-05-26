@@ -16,3 +16,4 @@ unico-front-end/.env
 unico-back-end/.env
 
 unico-back-end/database.sqlite
+unico-back-end/.vscode
