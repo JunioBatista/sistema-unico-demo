@@ -9,3 +9,19 @@
     
 }
 
+::-webkit-scrollbar {
+    background-color: blue;
+    border-radius: 4px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background-color: #252728;
+   border-radius: 4px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color:#B8BBBF;
+    border-radius: 8px;
+}

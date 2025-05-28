@@ -1,39 +1,43 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useFilas } from "../context/Filas.context";
+import Header from "../components/Header";
 import FilaCard from "../components/filaCard";
-import { useSearchResults } from "../context/filas.context";
 
  
 export default function Filas() {
-  const { results } = useSearchResults(); 
+  const { filas } = useFilas(); 
 
     return (
-      <section className= " bg-primary-900 text-white  w-screen px-[10%] ">
+      <section className= "bg-primary-900 text-white  h-dvh w-full ">
 
+        <Header />
+        <div className="w-full px-[10%] mt-6">
 
-        <div className="w-full ">
-          <h1>Filas encontradas: {results?.total }</h1>
-          {results?.total > 0 ? (
+          {filas?.total > 0 ? (
 
-          <div className="flex w-full gap-8">
-            <div className="w-full">
-              <h1>Filas Conectadas</h1>
-              {results.connected.map((fila) => (
-                <FilaCard key={fila.id} fila={fila}></FilaCard>
-              ))}
+          <div className="flex w-full   gap-8">
+            <div className="w-full ">
+              <h1 className="text-center text-lg font-bold">filas Conectadas: {filas.connected.length} </h1>
+              <div className="w-full overflow-y-scroll h-[700px] ">
+                {filas.connected.map((fila) => (
+                  <FilaCard key={fila.id} fila={fila}></FilaCard>
+                ))}
+              </div>
             </div>
 
-            <div className="w-full">
-              <h1>Filas Desconectadas</h1>
-              {results.disconnected.map((fila) => (
-                <FilaCard key={fila.id} fila={fila}></FilaCard>
-              ))}
+            <div className="w-full ]">
+              <h1 className="text-center text-lg font-bold">Filas Desconectadas: {filas.disconnected.length}</h1>
+              <div className="w-full overflow-y-scroll h-[700px] ">
+                {filas.disconnected.map((fila) => (
+                  <FilaCard key={fila.id} fila={fila}></FilaCard>
+                ))}
+              </div>
             </div>
-
           </div>
         
       ) : (
-        <p>Nenhuma fila encontrada.</p>
+        <p className="text-center">Nenhuma fila encontrada.</p>
       )}
     </div>
       </section>

@@ -1,10 +1,9 @@
 import React, { createContext, useState, useContext } from 'react';
 
-const SearchResultsContext = createContext();
+const FilasContext = createContext();
 
-
-export const SearchResultsProvider = ({ children }) => {
-  const [results, setResults] = useState(
+export const FilasContextProvider = ({ children }) => {
+  const [filas, setFilas] = useState(
     {
       total: 0,
       connected: [],
@@ -12,17 +11,17 @@ export const SearchResultsProvider = ({ children }) => {
     }
   );
 
-  const updateResults = (newResults) => {
-    setResults(newResults);
+  const updateFilas = (newResults) => {
+    setFilas(newResults);
   };
 
   return (
-    <SearchResultsContext.Provider value={{ results, updateResults }}>
+    <FilasContext.Provider value={{ filas, updateFilas }}>
       {children}
-    </SearchResultsContext.Provider>
+    </FilasContext.Provider>
   );
 };
 
-export const useSearchResults = () => {
-  return useContext(SearchResultsContext);
+export const useFilas = () => {
+  return useContext(FilasContext);
 };

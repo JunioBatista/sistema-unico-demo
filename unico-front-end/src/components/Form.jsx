@@ -56,11 +56,11 @@ export default function Form({onSubmit, isLoading}) {
                 onChange={handleChange}
             />
         </div>
-        {error && <p className="text-red-500 font-medium text-sm">{error}</p>}
+        {error && <p className="text-red-500 font-medium text-sm ">{error}</p>}
 
         <button
             type="submit"
-            className=" w-48  flex items-center justify-center justify-center gap-2 bg-text-900 text-white py-2 px-4 rounded hover:bg-primary-600">
+            className=" w-48  flex items-center justify-center justify-center gap-2 bg-text-900 text-white py-2 px-4 rounded hover:bg-blue-800">
                 {isLoading ? "" : "Consultar Filas"}
              
             <FontAwesomeIcon icon={isLoading ? faSpinner : faArrowRight } />

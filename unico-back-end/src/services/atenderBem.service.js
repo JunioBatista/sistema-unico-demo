@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const fetchFilas = async (url, key) => {
   try {
-    let response = await axios.post(`${url}/int/getAllQueues`, 
+    let response = await axios.post(`${url}int/getAllQueues`, 
       {
         apiKey: key
       }, 
