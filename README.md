@@ -1,6 +1,3 @@
-<p align='center'><img width='400' src="./.github/logo.svg"/></p>
-
-
 ## 🚀 Tecnologias
 
 Esse projeto está utilizando as seguintes tecnologias:
@@ -21,6 +18,15 @@ O desafio do projeto é consumir uma API externa e gerenciar essas listas localm
 - A api interna busca os dados da api externa usando os valores informados ;
 - O usuário pode conectar uma lista;
 - O usuário pode deletar uma lista;
+
+ ## Requisitos que foram implementados
+- ✅Exibe e mantém localmente o estado das filas desconectadas.
+- ✅Permitir atualização e remoção
+- ✅Possibilita armazenar localmente informações relevantes como instância, status, data da verificação, e data de conexão quando aplicável.
+- ✅Para filas desconectadas exibe: Nome da fila, Instância, Status
+- ✅Para filas que estavam desconectadas e agora estão conectadas exibe data de conexão
+- ✅A tela sempre exibe os dados vindos do banco local
+- ✅ Endpoints: GET /filas/ , POST /filas/desconectadas , PUT /filas/desconectadas/:id DELETE /filas/desconectadas/:id
 
 ## 🎲 Instalação do projeto
 
