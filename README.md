@@ -83,6 +83,7 @@ npm run dev
 ### Página de Listas (mobile/desktop)
 ![mob-filas](https://github.com/user-attachments/assets/9612c6a3-475a-4267-890f-0c18df5cfedf)
 ![lg-filas](https://github.com/user-attachments/assets/ab01be72-b73a-4d82-9e8a-47f1b99ec8a9)
+![mob](https://github.com/user-attachments/assets/adaaf048-1a12-4f04-8b93-5980a45cb4e9)
 
 ---
 
