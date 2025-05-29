@@ -64,6 +64,11 @@ npm run dev
 ```bash
 npm run dev 
 ```
+### Servidores Locais
+- O frontEnd estará rodando em: http://localhost:5173
+- O Backend estará rodando em: http://localhost:8000
+
+
 ## 🖼️ Layout
 
 ### Formulario 
@@ -76,9 +81,7 @@ npm run dev
 ![lg-filas](https://github.com/user-attachments/assets/ab01be72-b73a-4d82-9e8a-47f1b99ec8a9)
 
 ---
-### Servidores Locais
-O frontEnd estará rodando em: http://localhost:5173
-O Backend estará rodando em: http://localhost:8000
+
 
 
 
