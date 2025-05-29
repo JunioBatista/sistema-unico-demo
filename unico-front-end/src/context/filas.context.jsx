@@ -5,7 +5,7 @@ const FilasContext = createContext();
 export const FilasContextProvider = ({ children }) => {
   const [filas, setFilas] = useState(
     {
-      total: 0,
+      verificationDate: '',
       connected: [],
       disconnected: []
     }

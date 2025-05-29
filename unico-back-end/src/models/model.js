@@ -11,10 +11,10 @@ export default async function createFilaTable() {
       instance TEXT,
       connected INTEGER,
       connected_date DATETIME,
+      verification_date DATETIME DEFAULT CURRENT_TIMESTAMP,
       chatsOnQueue INTEGER
     )`
   );
-  console.log('Tabela "filas" criada.');
 }
 
 
@@ -57,14 +57,12 @@ export function readFila(db, id) {
     : `SELECT * FROM filas`;
 
   const params = id ? [id] : [];
-  console.log(db.db)
   return new Promise((resolve, reject) => {
     const callback = (err, rows) => {
       if (err) {
         console.error('Erro ao buscar filas:', err);
         return reject(err);
       }
-      console.log('Resultado da consulta:', rows);
       resolve(rows);
     };
 
@@ -103,8 +101,7 @@ export async function updateFila(db, id, changes) {
 }
 
 
-export async function deleteFila(id) {
-  const db = await initDatabase();
+export async function deleteFila(db, id,) {
   
   return new Promise((resolve, reject) => {
     const sql = `DELETE FROM filas WHERE id = ?`;

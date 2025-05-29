@@ -2,8 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Home from './pages/Home'
 import Filas from './pages/Filas'
 import { FilasContextProvider } from './context/Filas.context'
-import Header from './components/Header'
-
 
 function App() {
 

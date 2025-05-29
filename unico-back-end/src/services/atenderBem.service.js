@@ -10,7 +10,7 @@ export const fetchFilas = async (url, key) => {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
-        }
+        } 
       });
     return response.data;
 

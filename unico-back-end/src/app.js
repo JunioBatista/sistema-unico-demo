@@ -17,7 +17,7 @@ async function startApp() {
     app.use(cors({
       origin: 'http://localhost:5173',
     }));
-
+    
     app.use((req, res, next) => {
       req.db = dbInstance;
       next();

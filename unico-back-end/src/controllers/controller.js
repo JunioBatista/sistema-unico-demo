@@ -29,7 +29,7 @@ export const getFilas = async (req, res) => {
     const data = {
       connected,
       disconnected,
-      total: response.length
+      verificationDate: new Date().toISOString(),
     }
 
     res.status(200).json(data);
@@ -68,20 +68,16 @@ export const conectFila = async (req, res) => {
 
 export const deleteFilaFromDB = async (req, res) => {
   const { db } = req.db;
-  const { id } = req.params; 
-
-  console.log(`Requisição para deletar fila com ID: ${id}`);
-
-  try {
-    const deleted = await deleteFila(db, id); 
-
+  const { id } = req.params;
+  console.log('chegou')
+  try { 
+    const deleted = await deleteFila(db, id);
     if (deleted) {
       res.status(200).json({ message: `Fila ${id} deletada com sucesso.` });
     } else {
       res.status(404).json({ message: `Fila ${id} não encontrada para deletar.` });
     }
   } catch (error) {
-    console.error(`Erro ao deletar fila ${id}:`, error);
     res.status(500).json({ error: 'Erro interno do servidor ao deletar fila.' });
   }
 };

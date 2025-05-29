@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
@@ -31,7 +31,7 @@ export default function Form({onSubmit, isLoading}) {
 
 
     return (
-        <form onSubmit={handleSubmit} className= " mt-5 bg-primary-800 text-white border-1 border-white-100 w-3xl flex flex-col items-center gap-4 p-6 rounded shadow">
+        <form onSubmit={handleSubmit} className= " mt-5 bg-primary-800 text-white border-1 border-white-100 lg:w-3xl md:full sm:full flex flex-col items-center gap-4 p-6 rounded shadow">
 
         <div className="flex flex-col w-full ">
             <label htmlFor="url" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >URL da API:</label>
@@ -61,8 +61,7 @@ export default function Form({onSubmit, isLoading}) {
         <button
             type="submit"
             className=" w-48  flex items-center justify-center justify-center gap-2 bg-text-900 text-white py-2 px-4 rounded hover:bg-blue-800">
-                {isLoading ? "" : "Consultar Filas"}
-             
+            {isLoading ? "" : "Consultar Filas"}
             <FontAwesomeIcon icon={isLoading ? faSpinner : faArrowRight } />
         </button>
 
