@@ -35,8 +35,12 @@ O desafio do projeto é consumir uma API externa e gerenciar essas listas localm
 ```bash
 git clone https://github.com/JunioBatista/sistema-unico-demo.git
 ```
+### Navegue até o diretório recém clonado
+```bash
+cd sistema-unico-demo
+```
 
-### Navegue até o diretório do projeto e instale as dependências do frontend
+###  instale as dependências do frontend
 
 ```bash
 cd unico-front-end
