@@ -109,15 +109,15 @@ export default function FilaCard({fila}) {
 
             </div>
             {!fila.connected && (
-            <div className="flex items-center gap-2 mr-2">
+            <div className="flex h-full flex-col lg:flex-row items-center self-center gap-2 mr-2">
                 <button 
                     onClick={() =>handleConnectBtn(fila.id)} 
-                    className="flex h-[2rem] text-sm p-2 items-center justify-center gap-2 bg-text-900 text-white  rounded hover:bg-blue-800">
+                    className="flex h-[1.5rem] lg:h-[2rem] text-sm p-1 items-center justify-around gap-2 bg-text-900 text-white  rounded hover:bg-blue-800">
                     {isConnecting ? <FontAwesomeIcon icon={faSpinner} /> : "Conectar"}
                 </button>
                 <button 
                     onClick={()     =>handleDeleteBtn(fila.id)} 
-                    className="flex h-[2rem] text-sm p-2 items-center justify-center gap-2 bg-text-900 text-white  rounded hover:bg-blue-800">
+                    className="flex h-[1.5rem] lg:h-[2rem] text-sm p-1 items-center justify-center gap-2 bg-text-900 text-white  rounded hover:bg-blue-800">
                     {isDeleting ? <FontAwesomeIcon icon={faSpinner} /> : "Deletar"}
                 </button>
             </div>
