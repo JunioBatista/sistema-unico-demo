@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import OpenWarningModal from "./SweetModal";
 
 export default function FilaCard({fila}) {
+
+    console.log(fila)
     const { updateFilas, filas } = useFilas();
     const [isConnecting, setIsConnecting] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
@@ -87,7 +89,7 @@ export default function FilaCard({fila}) {
                 </div>
                 <div className="flex gap-2">
                     <span className="font-semibold text-sm">Instancia:</span> 
-                    <span className="text-sm">{fila.type}</span>
+                    <span className="text-sm">{fila.instance}</span>
                 </div >
                 <div className="flex gap-2">
                     <span className="font-semibold text-sm">Status:</span> 
