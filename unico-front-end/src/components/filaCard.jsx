@@ -7,7 +7,6 @@ import OpenWarningModal from "./SweetModal";
 
 export default function FilaCard({fila}) {
 
-    console.log(fila)
     const { updateFilas, filas } = useFilas();
     const [isConnecting, setIsConnecting] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
