@@ -1,15 +1,13 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext } from "react";
 
 const FilasContext = createContext();
 
 export const FilasContextProvider = ({ children }) => {
-  const [filas, setFilas] = useState(
-    {
-      verificationDate: '',
-      connected: [],
-      disconnected: []
-    }
-  );
+  const [filas, setFilas] = useState({
+    verificationDate: "",
+    connected: [],
+    disconnected: [],
+  });
 
   const updateFilas = (newResults) => {
     setFilas(newResults);
