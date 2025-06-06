@@ -4,8 +4,10 @@ import { deleteFilaById, updateFilaById } from "../HTTPClient/config";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import OpenWarningModal from "./SweetModal";
+import { formatBrazilianDateTime } from "../utils/formatBrazilianDateTime";
 
 export default function FilaCard({ fila }) {
+  // eslint-disable-next-line no-unused-vars
   const { updateFilas, filas } = useFilas();
   const [isConnecting, setIsConnecting] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -38,7 +40,7 @@ export default function FilaCard({ fila }) {
   const handleDeleteBtn = async (id) => {
     setIsDeleting((state) => !state);
     let response = await deleteFilaById(id);
-    console.log(response);
+
     setIsDeleting((state) => !state);
 
     updateFilas((prevFilasState) => {
@@ -55,25 +57,6 @@ export default function FilaCard({ fila }) {
     OpenWarningModal(response);
   };
 
-  const formatDate = (dataIso) => {
-    if (!dataIso) return "";
-
-    const data = new Date(dataIso);
-
-    const opcoes = {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-      timeZone: "America/Sao_Paulo",
-    };
-
-    return data.toLocaleString("pt-BR", opcoes);
-  };
-
   return (
     <div className="border-1  border-primary-800 bg-primary-700 flex rounded shadow mb-2 p-1">
       <div
@@ -87,29 +70,47 @@ export default function FilaCard({ fila }) {
         {fila.id}
       </div>
       <div className="rounded-l-lg flex flex-col grow-1">
-        <div className="flex gap-2">
-          <span className="font-semibold text-sm">Nome:</span>
-          <span className="text-sm">{fila.name}</span>
+        <div className="flex my-0.5 gap-2">
+          <span className="font-semibold text-sm text-[14px] leading-[14px]">
+            Nome:
+          </span>
+          <span className="text-sm text-[14px] leading-[16.59px]">
+            {fila.name}
+          </span>
         </div>
-        <div className="flex gap-2">
-          <span className="font-semibold text-sm">Instancia:</span>
-          <span className="text-sm">{fila.instance}</span>
+        <div className="flex my-0.5 gap-2">
+          <span className="font-semibold text-sm text-[14px] leading-[14px] ">
+            Instancia:
+          </span>
+          <span className="text-sm text-[14px] leading-[16.59px]">
+            {fila.instance}
+          </span>
         </div>
-        <div className="flex gap-2">
-          <span className="font-semibold text-sm">Status:</span>
-          <span className="text-sm">
+        <div className="flex my-0.5 gap-2">
+          <span className="font-semibold text-sm text-[14px] leading-[14px] ">
+            Status:
+          </span>
+          <span className="text-sm text-[14px] leading-[16.59px]">
             {fila.connected ? "Conectada" : "Desconectada"}
           </span>
         </div>
-        <div className="flex gap-2">
-          <span className="font-semibold text-sm">Quantidade de chats:</span>
-          <span className="text-sm">{fila.chatsOnQueue}</span>
+        <div className="flex my-0.5 gap-2">
+          <span className="font-semibold text-sm text-[14px] leading-[14px] ">
+            Quantidade de chats:
+          </span>
+          <span className="text-sm text-[14px] leading-[16.59px]">
+            {fila.chatsOnQueue}
+          </span>
         </div>
 
         {fila.connected_date && (
-          <div className="flex gap-2">
-            <span className="font-semibold text-sm">Data de conexão:</span>
-            <span className="text-sm">{formatDate(fila.connected_date)}</span>
+          <div className="flex my-0.5 gap-2">
+            <span className="font-semibold text-sm text-[14px] leading-[14px]">
+              Data de conexão:
+            </span>
+            <span className="text-sm text-[14px] leading-[16.59px]">
+              {formatBrazilianDateTime(fila.connected_date)}
+            </span>
           </div>
         )}
       </div>
@@ -117,13 +118,13 @@ export default function FilaCard({ fila }) {
         <div className="flex h-full flex-col lg:flex-row items-center self-center gap-2 mr-2">
           <button
             onClick={() => handleConnectBtn(fila.id)}
-            className="flex h-[1.5rem] lg:h-[2rem] text-sm p-1 items-center justify-around gap-2 bg-text-900 text-white  rounded hover:bg-blue-800"
+            className="flex h-[1.5rem] lg:h-[2rem] w-20 text-sm p-1 items-center justify-around gap-2 bg-text-900 text-white  rounded hover:bg-blue-800"
           >
             {isConnecting ? <FontAwesomeIcon icon={faSpinner} /> : "Conectar"}
           </button>
           <button
             onClick={() => handleDeleteBtn(fila.id)}
-            className="flex h-[1.5rem] lg:h-[2rem] text-sm p-1 items-center justify-center gap-2 bg-text-900 text-white  rounded hover:bg-blue-800"
+            className="flex h-[1.5rem] lg:h-[2rem] w-20 text-sm p-1 items-center justify-center gap-2 bg-text-900 text-white  rounded hover:bg-blue-800"
           >
             {isDeleting ? <FontAwesomeIcon icon={faSpinner} /> : "Deletar"}
           </button>

@@ -69,7 +69,6 @@ export const conectFila = async (req, res) => {
 export const deleteFilaFromDB = async (req, res) => {
   const { db } = req.db;
   const { id } = req.params;
-  console.log('chegou')
   try { 
     const deleted = await deleteFila(db, id);
     if (deleted) {

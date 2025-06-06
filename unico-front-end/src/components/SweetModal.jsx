@@ -1,6 +1,12 @@
 import Swal from "sweetalert2";
 
 export default function OpenWarningModal({ message }) {
+  let type = "success";
+  if (!message) {
+    message = "Erro no servidor, tente mais tarde!";
+    type = "error";
+  }
+
   return Swal.fire({
     showCloseButton: false,
     position: "center",
@@ -9,7 +15,7 @@ export default function OpenWarningModal({ message }) {
     color: "#FFFFFF",
     text: message,
     showConfirmButton: false,
-    icon: "success",
+    icon: type,
     timer: 2500,
   });
 }
