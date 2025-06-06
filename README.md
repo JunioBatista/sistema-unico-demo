@@ -4,6 +4,8 @@ Esse projeto está utilizando as seguintes tecnologias:
 
 - [React](https://react.dev/)
 - [Tailwind](https://tailwindcss.com/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 - [Express.js](https://expressjs.com/pt-br/)
 - [Axios](https://axios-http.com/docs/instance)
 - [SQLite](https://www.sqlite.org/)
@@ -18,6 +20,7 @@ O desafio do projeto é consumir uma API externa e gerenciar essas listas localm
 - A api interna busca os dados da api externa usando os valores informados ;
 - O usuário pode conectar uma lista;
 - O usuário pode deletar uma lista;
+- O usuário pode exportar dados da lista em formato excel (xlsx);
 
  ## Requisitos que foram implementados
 - ✅Exibe e mantém localmente o estado das filas desconectadas.
@@ -26,7 +29,8 @@ O desafio do projeto é consumir uma API externa e gerenciar essas listas localm
 - ✅Para filas desconectadas exibe: Nome da fila, Instância, Status
 - ✅Para filas que estavam desconectadas e agora estão conectadas exibe data de conexão
 - ✅A tela sempre exibe os dados vindos do banco local
-- ✅ Endpoints: GET /filas/ , POST /filas/desconectadas , PUT /filas/desconectadas/:id DELETE /filas/desconectadas/:id
+- ✅Endpoints: GET /filas/ , POST /filas/desconectadas , PUT /filas/desconectadas/:id DELETE /filas/desconectadas/:id
+- ✅exportar dados da lista em formato excel (xlsx);
 
 ## 🎲 Instalação do projeto
 
