@@ -25,6 +25,7 @@ O desafio do projeto é consumir uma API externa e gerenciar essas listas localm
  ## Requisitos que foram implementados
 - ✅Exibe e mantém localmente o estado das filas desconectadas.
 - ✅Permitir atualização e remoção
+- ✅Design responsivo para exibição em diferentes tamanhos de telas (mobile, desktop)
 - ✅Possibilita armazenar localmente informações relevantes como instância, status, data da verificação, e data de conexão quando aplicável.
 - ✅Para filas desconectadas exibe: Nome da fila, Instância, Status
 - ✅Para filas que estavam desconectadas e agora estão conectadas exibe data de conexão
@@ -79,15 +80,19 @@ npm run dev
 
 ## 🖼️ Layout
 
-### Formulario 
 
-![formulario](https://github.com/user-attachments/assets/37ac5f11-ebd5-4c0f-a42c-f6b387a16fe0)
-
+### Formulario  (mobile/desktop)
+![formulario desktop](https://github.com/user-attachments/assets/b69f006f-961f-4221-be7c-14f75eade65f)
+![formulario mobile](https://github.com/user-attachments/assets/3aa91b2c-0527-4ecb-b538-c1244e6de67e)
 
 ### Página de Listas (mobile/desktop)
-![mob-filas](https://github.com/user-attachments/assets/9612c6a3-475a-4267-890f-0c18df5cfedf)
-![lg-filas](https://github.com/user-attachments/assets/ab01be72-b73a-4d82-9e8a-47f1b99ec8a9)
-![mob](https://github.com/user-attachments/assets/adaaf048-1a12-4f04-8b93-5980a45cb4e9)
+![filas-desktop](https://github.com/user-attachments/assets/f5de97df-1cf5-4635-814a-3956fe8ca729)
+<div>
+ <img src="https://github.com/user-attachments/assets/33930056-c910-4b8a-ad6d-f43db5d354d3" />
+</div>
+ <img src="https://github.com/user-attachments/assets/86868237-8c71-46ff-872f-3c72aa6f1182" />
+
+
 
 ---
 
